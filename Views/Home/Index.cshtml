@@ -3,6 +3,16 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Ahorcado</h1>
+    <p>Tenes 10 intentos para adivinar una palabra misteriosa, cada letra que te equivoques te saca un intento, suerte.</p>
+    <input type="hidden" name="palabraOculta" id="palabraOculta" value="@ViewBag.palabra">
+    <p class="mostrarPalabra" id="mostrarPalabra">
+        @foreach(char letra in ViewBag.palabra){
+            @Html.Raw("_");
+        }
+    </p>
+    Intentos restantes: <div id="cantIntentos">10</div>
+    <input type="text" id="letra" placeholder="Ingresar letra" maxlength = 1>
+    <input type="button" value="Enviar" onclick="arriesgarLetra()">
+    <div id="resultado"></div>
 </div>
