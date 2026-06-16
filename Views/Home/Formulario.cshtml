@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Formulario";
+}
+
+<div class="text-center">
+    <form action='@Url.Action("agregarPalabra", "Home")' method="get">
+        palabra: <input type="text" name="palabra">
+        <input type="submit" value="Enviar palabra">
+    </form>
+</div>

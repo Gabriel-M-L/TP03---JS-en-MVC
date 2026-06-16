@@ -19,10 +19,21 @@ public class HomeController : Controller
         ViewBag.palabra = palabrasAhorcado.obtenerPalabra();
         return View();
     }
-
+    public IActionResult Formulario()
+    {
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();
+    }
+
+    [HttpGet]
+    public IActionResult agregarPalabra(string palabra)
+    {
+        BD bd = new BD();
+        bd.agregarPalabra(palabra);
+        return RedirectToAction("Index");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
